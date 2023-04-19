@@ -5,7 +5,6 @@
 #include <vector>
 #include <cmath>
 #include <list>
-#include <stack>
 
 using namespace std;
 
@@ -166,15 +165,15 @@ void print(vector<Point*> ch, Point* leftmost) {
         i = (i+1) % n;
     }
     
-    output_file << ch[i]->id << "->";
+    output_file << "(" << ch[i]->x << "," << ch[i]->y << ")";
     i = (i+1) % n;
 
     // Print starting from leftmost
     while (ch[i] != leftmost) {
-        output_file << ch[i]->id << "->";
+        output_file << "(" << ch[i]->x << "," << ch[i]->y << ")";
         i = (i+1) % n;
     }
-    output_file << ch[i]->id << endl;
+    output_file << "(" << ch[i]->x << "," << ch[i]->y << ")";
     output_file.close();
 }
 
@@ -189,9 +188,9 @@ int main(int argc, char* argv[]){
     // points' information
     vector<Point*> points;
     
-    int x, y, a;
+    int x, y;
     for(int i = 0; i < n; i++) {
-        input_file >> x >> y >> a;
+        input_file >> x >> y;
         points.push_back(new Point(x, y));
     }
 
